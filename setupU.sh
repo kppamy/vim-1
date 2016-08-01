@@ -38,3 +38,6 @@
    sudo apt-get install ipython3
    pip3 install pandas_datareader
    pip3 install --upgrade pip
+ git config --global user.email "zhhcay@163.com"
+git config --global user.name "kppamy"
+
