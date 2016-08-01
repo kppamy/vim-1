@@ -92,21 +92,15 @@ alias ll='ls -altF'
 alias la='ls -A'
 alias l='ls -CF'
 alias kill='sudo kill'
-alias socat='sudo socat'
-alias ser2net='sudo ser2net'
 alias py='python3'
 
 # command alias for git command
 alias gt='git status'
 alias gl='git log --decorate --graph'
-alias gl0='git log --decorate --graph aosp/tch/tca300/master'
-alias gl1='git log --decorate --graph aosp/tch/tca301/master'
-alias glf0='git log --decorate --graph aosp/tch/tca300/factory'
-alias glf1='git log --decorate --graph aosp/tch/tca301/factory'
 alias gci='git commit'
 alias gco='git checkout'
 alias ga='git add'
-alias gb='git branch'
+alias gb='git branch -av'
 alias gs='git show'
 
 
