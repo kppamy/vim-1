@@ -133,3 +133,9 @@ export PATH="/home/chenay/anaconda3/bin:$PATH"
 
 #http_proxy="http://chenay:dbz12!\@zhh@10.41.255.9:80"
 #export http_proxy
+sudo apt-get install ibus-pinyin
+ibus-daemon  -drx
+ibus-setup 
+ killall ibus-daemon
+ ibus-daemon -d
+ ibus restart
