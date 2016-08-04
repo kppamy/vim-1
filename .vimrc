@@ -193,6 +193,25 @@ nnoremap <C-F2> :vert diffsplit
 "nnoremap <C-n> :CtrlPFunky<Cr>
 "列出当前目录文件  
 map <F3> :NERDTreeToggle<CR>
+let g:NERDTreeQuitOnOpen=0
+let g:nerdtree_tabs_open_on_gui_startup=1     " Open NERDTree on gvim/macvim startup
+let g:nerdtree_tabs_open_on_console_startup=1 " Open NERDTree on console vim startup
+let g:nerdtree_tabs_open_on_new_tab=1         " Open NERDTree on new tab creation
+let g:nerdtree_tabs_meaningful_tab_names=1    " Unfocus NERDTree when leaving a tab for descriptive tab names
+let g:nerdtree_tabs_autoclose=1               " Close current tab if there is only one window in it and it’s NERDTree
+let g:nerdtree_tabs_synchronize_view=1        " Synchronize view of all NERDTree windows (scroll and cursor position)
+
+" When switching into a tab, make sure that focus is on the file window, not in the NERDTree window.
+let g:nerdtree_tabs_focus_on_files=1"
+
+function ShortTabLabel ()
+    let bufnrlist = tabpagebuflist (v:lnum)
+    let label = bufname (bufnrlist[tabpagewinnr (v:lnum) -1])
+    let filename = fnamemodify (label, ':t')
+    return filename
+endfunction
+
+set guitablabel=%{ShortTabLabel()}
 imap <F3> <ESC> :NERDTreeToggle<CR>
 "打开树状文件目录  
 map <C-F3> \be  
@@ -274,9 +293,9 @@ if has("autocmd")
 endif
 "当打开vim且没有文件时自动打开NERDTree
 autocmd vimenter * if !argc() | NERDTree | endif
+
 " 只剩 NERDTree时自动关闭
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
 " 设置当文件被改动时自动载入
 set autoread
 " quickfix模式
