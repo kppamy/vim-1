@@ -9,7 +9,7 @@ set sm
 set selection=inclusive
 set wildmenu
 set mousemodel=popup
-
+set shell=/bin/sh
 au FileType php setlocal dict+=~/.vim/dict/php_funclist.dict
 au FileType css setlocal dict+=~/.vim/dict/css.dict
 au FileType c setlocal dict+=~/.vim/dict/c.dict
@@ -193,17 +193,18 @@ nnoremap <C-F2> :vert diffsplit
 "nnoremap <C-n> :CtrlPFunky<Cr>
 "列出当前目录文件  
 map <F3> :NERDTreeToggle<CR>
-let g:NERDTreeQuitOnOpen=0
+"let g:NERDTreeQuitOnOpen=0
+let g:nerdtree_quit_on_open=0
 let g:nerdtree_tabs_open_on_gui_startup=1     " Open NERDTree on gvim/macvim startup
 let g:nerdtree_tabs_open_on_console_startup=1 " Open NERDTree on console vim startup
 let g:nerdtree_tabs_open_on_new_tab=1         " Open NERDTree on new tab creation
-let g:nerdtree_tabs_meaningful_tab_names=1    " Unfocus NERDTree when leaving a tab for descriptive tab names
+let g:nerdtree_tabs_meaningful_tab_names=0    " Unfocus NERDTree when leaving a tab for descriptive tab names
 let g:nerdtree_tabs_autoclose=1               " Close current tab if there is only one window in it and it’s NERDTree
 let g:nerdtree_tabs_synchronize_view=1        " Synchronize view of all NERDTree windows (scroll and cursor position)
 
 " When switching into a tab, make sure that focus is on the file window, not in the NERDTree window.
 let g:nerdtree_tabs_focus_on_files=1"
-
+imap <F3> <ESC> :NERDTreeToggle<CR>
 function ShortTabLabel ()
     let bufnrlist = tabpagebuflist (v:lnum)
     let label = bufname (bufnrlist[tabpagewinnr (v:lnum) -1])
@@ -212,7 +213,6 @@ function ShortTabLabel ()
 endfunction
 
 set guitablabel=%{ShortTabLabel()}
-imap <F3> <ESC> :NERDTreeToggle<CR>
 "打开树状文件目录  
 map <C-F3> \be  
 :autocmd BufRead,BufNewFile *.dot map <F5> :w<CR>:!dot -Tjpg -o %<.jpg % && eog %<.jpg  <CR><CR> && exec "redr!"
@@ -377,7 +377,7 @@ set completeopt=longest,menu
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let Tlist_Sort_Type = "name"    " 按照名称排序  
 let Tlist_Use_Right_Window = 1  " 在右侧显示窗口  
-let Tlist_Compart_Format = 1    " 压缩方式  
+let Tlist_Compart_Format = 0    " 压缩方式  
 let Tlist_Exist_OnlyWindow = 1  " 如果只有一个buffer，kill窗口也kill掉buffer  
 ""let Tlist_File_Fold_Auto_Close = 0  " 不要关闭其他文件的tags  
 ""let Tlist_Enable_Fold_Column = 0    " 不要显示折叠树  
@@ -391,7 +391,7 @@ set autochdir
 "其他东东
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "默认打开Taglist 
-let Tlist_Auto_Open=0 
+let Tlist_Auto_Open=1 
 """""""""""""""""""""""""""""" 
 " Tag list (ctags) 
 """""""""""""""""""""""""""""""" 
