@@ -382,8 +382,6 @@ let Tlist_Exist_OnlyWindow = 1  " 如果只有一个buffer，kill窗口也kill�
 ""let Tlist_File_Fold_Auto_Close = 0  " 不要关闭其他文件的tags  
 ""let Tlist_Enable_Fold_Column = 0    " 不要显示折叠树  
 "let Tlist_Show_One_File=1            "不同时显示多个文件的tag，只显示当前文件的
-"设置tags  
-set tags=tags;  
 set autochdir 
 
 
@@ -406,11 +404,41 @@ let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1  
 nmap tl :Tlist<cr>
+"设置tags  
+set tags=tags;  
+set autochdir
+
+  " Ctags {
+        set tags=./tags;/,~/.vimtags
+
+        " Make tags placed in .git/tags file available in all levels of a repository
+        let gitroot = substitute(system('git rev-parse --show-toplevel'), '[\n\r]', '', 'g')
+        if gitroot != ''
+            let &tags = &tags . ',' . gitroot . '/.git/tags'
+        endif
+    " }
+
+    " AutoCloseTag {
+        " Make it so AutoCloseTag works for xml and xhtml files as well
+        au FileType xhtml,xml ru ftplugin/html/autoclosetag.vim
+        nmap <Leader>ac <Plug>ToggleAutoCloseMappings
+    " }
+
+
+    nmap<leader>sa:csadd cscope.out<cr>
+    nmap<leader>ss:cs find s<C-R>=expand("<cword>")<cr><cr>
+    nmap<leader>sg:cs find g <C-R>=expand("<cword>")<cr><cr>
+    nmap<leader>sc:cs find c <C-R>=expand("<cword>")<cr><cr>
+    nmap<leader>st:cs find t <C-R>=expand("<cword>")<cr><cr>
+    nmap<leader>se:cs find e <C-R>=expand("<cword>")<cr><cr>
+    nmap<leader>sf:cs find f<C-R>=expand("<cfile>")<cr><cr>
+    nmap<leader>si:cs find i<C-R>=expand("<cfile>")<cr><cr>
+    nmap<leader>sd:cs find d <C-R>=expand("<cword>")<cr><cr>
+
 
 "python补全
 let g:pydiction_location = '~/.vim/after/complete-dict'
 let g:pydiction_menu_height = 20
-let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
