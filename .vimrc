@@ -10,6 +10,7 @@ set selection=inclusive
 set wildmenu
 set mousemodel=popup
 set shell=/bin/sh
+set relativenumber
 au FileType php setlocal dict+=~/.vim/dict/php_funclist.dict
 au FileType css setlocal dict+=~/.vim/dict/css.dict
 au FileType c setlocal dict+=~/.vim/dict/c.dict
