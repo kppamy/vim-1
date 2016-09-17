@@ -92,16 +92,20 @@ alias ll='ls -altF'
 alias la='ls -A'
 alias l='ls -CF'
 alias kill='sudo kill'
-alias py='python3'
+alias p3='python3'
+alias p2='python2.7'
+alias ana2='PATH=/home/cay/anaconda3/envs/py2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'
 
 # command alias for git command
 alias gt='git status'
+alias gf='git diff'
 alias gl='git log --decorate --graph'
 alias gci='git commit'
 alias gco='git checkout'
 alias ga='git add'
 alias gb='git branch -av'
 alias gs='git show'
+alias gg='git grep -Hnai'
 
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -128,14 +132,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# added by Anaconda3 4.1.0 installer
-export PATH="/home/chenay/anaconda3/bin:$PATH"
 
 #http_proxy="http://chenay:dbz12!\@zhh@10.41.255.9:80"
 #export http_proxy
-sudo apt-get install ibus-pinyin
-ibus-daemon  -drx
-ibus-setup 
- killall ibus-daemon
- ibus-daemon -d
- ibus restart
+
+# added by Anaconda3 4.1.1 installer
+export PATH="/home/cay/anaconda3/bin:$PATH"

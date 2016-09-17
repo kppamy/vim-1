@@ -398,7 +398,7 @@ let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 let Tlist_Show_One_File = 1 "不同时显示多个文件的tag，只显示当前文件的 
 let Tlist_File_Fold_Auto_Close = 1
 let Tlist_Exit_OnlyWindow = 1 "如果taglist窗口是最后一个窗口，则退出vim 
-let Tlist_Use_Right_Window = 1 "在右侧窗口中显示taglist窗口
+"let Tlist_Use_Right_Window = 1 "在右侧窗口中显示taglist窗口
 " minibufexpl插件的一般设置
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
@@ -425,16 +425,6 @@ set autochdir
         nmap <Leader>ac <Plug>ToggleAutoCloseMappings
     " }
 
-
-    nmap<leader>sa:csadd cscope.out<cr>
-    nmap<leader>ss:cs find s<C-R>=expand("<cword>")<cr><cr>
-    nmap<leader>sg:cs find g <C-R>=expand("<cword>")<cr><cr>
-    nmap<leader>sc:cs find c <C-R>=expand("<cword>")<cr><cr>
-    nmap<leader>st:cs find t <C-R>=expand("<cword>")<cr><cr>
-    nmap<leader>se:cs find e <C-R>=expand("<cword>")<cr><cr>
-    nmap<leader>sf:cs find f<C-R>=expand("<cfile>")<cr><cr>
-    nmap<leader>si:cs find i<C-R>=expand("<cfile>")<cr><cr>
-    nmap<leader>sd:cs find d <C-R>=expand("<cword>")<cr><cr>
 
 
 "python补全

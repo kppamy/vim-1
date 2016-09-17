@@ -41,3 +41,9 @@
  git config --global user.email "zhhcay@163.com"
 git config --global user.name "kppamy"
 
+sudo apt-get install ibus-pinyin
+ibus-daemon  -drx
+ibus-setup 
+ killall ibus-daemon
+ ibus-daemon -d
+ ibus restart
